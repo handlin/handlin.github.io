@@ -1,7 +1,7 @@
 (function (window, document) {
 
     var layout   = document.getElementById('layout'),
-        menu     = document.getElementById('menu'),
+        main_menu     = document.getElementById('main_menu'),
         menuLink = document.getElementById('menuLink');
 
     function toggleClass(element, className) {
@@ -28,7 +28,7 @@
 
         e.preventDefault();
         toggleClass(layout, active);
-        toggleClass(menu, active);
+        toggleClass(main_menu, active);
         toggleClass(menuLink, active);
     };
 

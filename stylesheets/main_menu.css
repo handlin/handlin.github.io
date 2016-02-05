@@ -1,4 +1,9 @@
+/* --------------------------
+ * Element styles
+ * -------------------------*/
+
 body {
+    font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #777;
 }
 
@@ -7,9 +12,96 @@ body {
     height: auto;
 }
 
-/*
-Add transition to containers so they can push in and out.
+a {
+  text-decoration: none;
+  color: #007edf;
+  text-shadow: none;
+  transition: color 0.5s ease;
+  transition: text-shadow 0.5s ease;
+  -webkit-transition: color 0.5s ease;
+  -webkit-transition: text-shadow 0.5s ease;
+  -moz-transition: color 0.5s ease;
+  -moz-transition: text-shadow 0.5s ease;
+  -o-transition: color 0.5s ease;
+  -o-transition: text-shadow 0.5s ease;
+  -ms-transition: color 0.5s ease;
+  -ms-transition: text-shadow 0.5s ease;
+}
+
+a:hover, a:focus {text-decoration: underline;}
+
+a:visited { color: #265778; }
+
+/* --------------------------
+ * Content styles
+ * -------------------------*/
+
+.content {
+    margin: 0 auto;
+    padding: 0 2em;
+    max-width: 800px;
+    margin-bottom: 50px;
+    line-height: 1.6em;
+}
+
+.content-subhead {
+    margin: 50px 0 20px 0;
+    font-weight: 300;
+    color: #888;
+}
+
+/* --------------------------
+ * Header
+ * -------------------------*/
+
+.header {
+    /*font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+    margin: 0 auto;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    background: #fff;
+    letter-spacing: 0.05em;
+    color: #333;
+    padding: 2.5em 2em 0;
+ }
+    .header h1 {
+        margin: 0.2em 0;
+        font-size: 3em;
+        font-weight: 100;
+    }
+     .header h2 {
+        font-size: 1.5em;
+        letter-spacing: -0.02em;
+        font-weight: 200;
+        color: #ccc;
+        padding: 0;
+        margin-top: 0;
+    }
+
+/* --------------------------
+ * Footer 
+ * -------------------------*/
+
+.footer {
+    font-size: 87.5%;
+    border-top: 1px solid #eee;
+    margin-top: 3.4286em;
+    padding: 1.1429em;
+    background: #FAFAFA;
+}
+
+    .acknowledge {
+        line-height: 1.6;
+        margin: 0 auto;
+        list-style-type: none;
+    }
+
+/* --------------------------
+ * Main menu
+ * -------------------------- 
 */
+
+/* Add transition to containers so they can push in and out. */
 #layout,
 #main_menu,
 .menu-link {
@@ -20,67 +112,23 @@ Add transition to containers so they can push in and out.
     transition: all 0.2s ease-out;
 }
 
-/*
-This is the parent `<div>` that contains the menu and the content area.
-*/
+/* This is the parent `<div>` that contains the menu and the content area. */
 #layout {
     position: relative;
     padding-left: 0;
 }
     #layout.active #main_menu {
-        left: 150px;
-        width: 150px;
+        left: 130px;
+        width: 130px;
     }
 
     #layout.active .menu-link {
-        left: 150px;
+        left: 130px;
     }
-/*
-The content `<div>` is where all your content goes.
-*/
-.content {
-    margin: 0 auto;
-    padding: 0 2em;
-    max-width: 800px;
-    margin-bottom: 50px;
-    line-height: 1.6em;
-}
-
-.header {
-     margin: 0;
-     color: #333;
-     text-align: center;
-     padding: 2.5em 2em 0;
-     border-bottom: 1px solid #eee;
- }
-    .header h1 {
-        margin: 0.2em 0;
-        font-size: 3em;
-        font-weight: 300;
-    }
-     .header h2 {
-        font-weight: 300;
-        color: #ccc;
-        padding: 0;
-        margin-top: 0;
-    }
-
-.content-subhead {
-    margin: 50px 0 20px 0;
-    font-weight: 300;
-    color: #888;
-}
-
-
-
-/*
-The `#main_menu` `<div>` is the parent `<div>` that contains the `.pure-menu` that
-appears on the left side of the page.
-*/
 
 #main_menu {
-    margin-left: -150px; /* "#main_menu" width */
-    width: 150px;
+    margin-left: -130px; /* "#main_menu" width */
+    width: 130px;
     position: fixed;
     top: 0;
     left: 0;
@@ -90,56 +138,43 @@ appears on the left side of the page.
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
 }
-    /*
-    All anchors inside the menu should be styled like this.
-    */
+    /* All anchors inside the menu should be styled like this. */
     #main_menu a {
         color: #999;
         border: none;
-        padding: 0.6em 0 0.6em 0.6em;
+        padding: 0.6em 0 0.6em 1.2em;
     }
 
-    /*
-    Remove all background/borders, since we are applying them to #main_menu.
-    */
+    /* Remove all background/borders, since we are applying them to #main_menu.  */
      #main_menu .pure-menu,
      #main_menu .pure-menu ul {
         border: none;
         background: transparent;
     }
 
-    /*
-    Add that light border to separate items into groups.
-    */
+    /* Add that light border to separate items into groups.  */
     #main_menu .pure-menu ul,
     #main_menu .pure-menu .menu-item-divided {
         border-top: 1px solid #333;
     }
-        /*
-        Change color of the anchor links on hover/focus.
-        */
+        /* Change color of the anchor links on hover/focus.  */
         #main_menu .pure-menu li a:hover,
         #main_menu .pure-menu li a:focus {
             background: #333;
+            text-decoration:none;
         }
 
-    /*
-    This styles the selected menu item `<li>`.
-    */
+    /* This styles the selected menu item `<li>`.  */
     #main_menu .pure-menu-selected,
     #main_menu .pure-menu-heading {
         background: #1f8dd6;
     }
-        /*
-        This styles a link within a selected menu item `<li>`.
-        */
+        /* This styles a link within a selected menu item `<li>`.  */
         #main_menu .pure-menu-selected a {
             color: #fff;
         }
 
-    /*
-    This styles the menu heading.
-    */
+    /* This styles the menu heading.  */
     #main_menu .pure-menu-heading {
         font-size: 110%;
         color: #fff;
@@ -147,11 +182,6 @@ appears on the left side of the page.
     }
 
 /* -- Dynamic Button For Responsive Menu -------------------------------------*/
-
-/*
-The button to open/close the Menu is custom-made and not part of Pure. Here's
-how it works:
-*/
 
 /*
 `.menu-link` represents the responsive menu toggle that shows/hides on
@@ -176,6 +206,10 @@ small screens.
         background: #000;
     }
 
+/* --------------------------
+ * Hamburger icon
+ * -------------------------- 
+*/
     .menu-link span {
         position: relative;
         display: block;
@@ -187,6 +221,13 @@ small screens.
         background-color: #fff;
         width: 100%;
         height: 0.2em;
+        /* to make the transition from burger to cross all swoopy:
+         *-webkit-transition: all 0.4s;
+         *   -moz-transition: all 0.4s;
+         *    -ms-transition: all 0.4s;
+         *     -o-transition: all 0.4s;
+         *        transition: all 0.4s;
+         */
     }
 
         .menu-link span:before,
@@ -200,13 +241,37 @@ small screens.
             margin-top: 0.6em;
         }
 
+/* --------------------------
+ * Cross icon
+ * -------------------------- 
+*/
+    .menu-link.active span {
+        background: transparent;
+    }
+
+        .menu-link.active span:before {
+            -webkit-transform: rotate(45deg) translate(.5em, .4em);
+               -moz-transform: rotate(45deg) translate(.5em, .4em);
+                -ms-transform: rotate(45deg) translate(.5em, .4em);
+                 -o-transform: rotate(45deg) translate(.5em, .4em);
+                    transform: rotate(45deg) translate(.5em, .4em);
+        }
+
+        .menu-link.active span:after {
+            -webkit-transform: rotate(-45deg) translate(.4em, -.3em);
+               -moz-transform: rotate(-45deg) translate(.4em, -.3em);
+                -ms-transform: rotate(-45deg) translate(.4em, -.3em);
+                 -o-transform: rotate(-45deg) translate(.4em, -.3em);
+                    transform: rotate(-45deg) translate(.4em, -.3em);
+        }
+
 
 /* -- Responsive Styles (Media Queries) ------------------------------------- */
 
 /*
-Hides the menu at `48em`, but modify this based on your app's needs.
+Hides the menu at `48em`
 */
-@media (min-width: 48em) {
+@media (min-width: 40em) {
 
     .header,
     .content {
@@ -215,25 +280,25 @@ Hides the menu at `48em`, but modify this based on your app's needs.
     }
 
     #layout {
-        padding-left: 150px; /* left col width "#main_menu" */
+        padding-left: 130px; /* left col width "#main_menu" */
         left: 0;
     }
     #main_menu {
-        left: 150px;
+        left: 130px;
     }
 
     .menu-link {
         position: fixed;
-        left: 150px;
+        left: 130px;
         display: none;
     }
 
     #layout.active .menu-link {
-        left: 150px;
+        left: 130px;
     }
 }
 
-@media (max-width: 48em) {
+@media (max-width: 40em) {
     /* Only apply this when the window is small. Otherwise, the following
     case results in extra padding on the left:
         * Make the window small.
@@ -242,7 +307,7 @@ Hides the menu at `48em`, but modify this based on your app's needs.
     */
     #layout.active {
         position: relative;
-        left: 150px;
+        left: 130px;
     }
 }
 
