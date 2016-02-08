@@ -181,11 +181,9 @@ a:visited { color: #265778; }
         margin: 0;
     }
 
-/* -- Dynamic Button For Responsive Menu -------------------------------------*/
-
-/*
-`.menu-link` represents the responsive menu toggle that shows/hides on
-small screens.
+/* --------------------------
+ * Button to toggle menu open/closed on small screens
+ * -------------------------- 
 */
 .menu-link {
     position: fixed;
@@ -205,71 +203,69 @@ small screens.
     .menu-link:focus {
         background: #000;
     }
-
-/* --------------------------
- * Hamburger icon
- * -------------------------- 
-*/
-    .menu-link span {
-        position: relative;
-        display: block;
-    }
-
-    .menu-link span,
-    .menu-link span:before,
-    .menu-link span:after {
-        background-color: #fff;
-        width: 100%;
-        height: 0.2em;
-        /* to make the transition from burger to cross all swoopy:
-         *-webkit-transition: all 0.4s;
-         *   -moz-transition: all 0.4s;
-         *    -ms-transition: all 0.4s;
-         *     -o-transition: all 0.4s;
-         *        transition: all 0.4s;
-         */
-    }
-
+    /* --------------------------
+     * Hamburger icon
+     * -------------------------- 
+    */
+        .menu-link span {
+            position: relative;
+            display: block;
+        }
+    
+        .menu-link span,
         .menu-link span:before,
         .menu-link span:after {
-            position: absolute;
-            margin-top: -0.6em;
-            content: " ";
+            background-color: #fff;
+            width: 100%;
+            height: 0.2em;
+            /* to make the transition from burger to cross all swoopy: */
+            -webkit-transition: all 0.4s;
+               -moz-transition: all 0.4s;
+                -ms-transition: all 0.4s;
+                 -o-transition: all 0.4s;
+                    transition: all 0.4s;
         }
-
-        .menu-link span:after {
-            margin-top: 0.6em;
+    
+            .menu-link span:before,
+            .menu-link span:after {
+                position: absolute;
+                margin-top: -0.6em;
+                content: " ";
+            }
+    
+            .menu-link span:after {
+                margin-top: 0.6em;
+            }
+    
+    /* --------------------------
+     * Cross icon
+     * -------------------------- 
+    */
+        .menu-link.active span {
+            background: transparent;
         }
-
-/* --------------------------
- * Cross icon
- * -------------------------- 
-*/
-    .menu-link.active span {
-        background: transparent;
-    }
-
-        .menu-link.active span:before {
-            -webkit-transform: rotate(45deg) translate(.5em, .4em);
-               -moz-transform: rotate(45deg) translate(.5em, .4em);
-                -ms-transform: rotate(45deg) translate(.5em, .4em);
-                 -o-transform: rotate(45deg) translate(.5em, .4em);
-                    transform: rotate(45deg) translate(.5em, .4em);
-        }
-
-        .menu-link.active span:after {
-            -webkit-transform: rotate(-45deg) translate(.4em, -.3em);
-               -moz-transform: rotate(-45deg) translate(.4em, -.3em);
-                -ms-transform: rotate(-45deg) translate(.4em, -.3em);
-                 -o-transform: rotate(-45deg) translate(.4em, -.3em);
-                    transform: rotate(-45deg) translate(.4em, -.3em);
-        }
+    
+            .menu-link.active span:before {
+                -webkit-transform: rotate(45deg) translate(.5em, .4em);
+                   -moz-transform: rotate(45deg) translate(.5em, .4em);
+                    -ms-transform: rotate(45deg) translate(.5em, .4em);
+                     -o-transform: rotate(45deg) translate(.5em, .4em);
+                        transform: rotate(45deg) translate(.5em, .4em);
+            }
+    
+            .menu-link.active span:after {
+                -webkit-transform: rotate(-45deg) translate(.4em, -.3em);
+                   -moz-transform: rotate(-45deg) translate(.4em, -.3em);
+                    -ms-transform: rotate(-45deg) translate(.4em, -.3em);
+                     -o-transform: rotate(-45deg) translate(.4em, -.3em);
+                        transform: rotate(-45deg) translate(.4em, -.3em);
+            }
 
 
 /* -- Responsive Styles (Media Queries) ------------------------------------- */
 
 /*
-Hides the menu at `48em`
+Hides the menu at `40em`
 */
 @media (min-width: 40em) {
 
