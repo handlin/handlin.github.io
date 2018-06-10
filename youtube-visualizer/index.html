@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="Mzuri Spitaleri Handlin">
+	
+	<title>Plotting Surfaces in the Browser</title>
+	
+	<!-- Custom Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=PT+Serif" rel="stylesheet">
+	
+	<!-- CSS reset -->
+	<link href="stylesheets/reset.css?version=1.0" rel="stylesheet">
+	
+	<!-- Custom CSS -->
+	<!-- <link href="stylesheets/main.css?version=1.0" rel="stylesheet">  -->
+	<link href="stylesheets/styles.css?version=1.0" rel="stylesheet"> 
+	
+	
+	<!-- <link rel="stylesheet/less" type="text/css" href="stylesheets/styles.less?version=1.0" /> -->
+	<!-- <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.0.0/less.min.js" ></script> -->
+	
+	
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+	
+	<!-- Scripts -->
+	<!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script> -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js" async></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+	<!-- <script src="https://apis.google.com/js/api.js"></script> -->
+	<!-- <script src="https://cdn.plot.ly/plotly-latest.min.js"></script> -->
+</head>
+
+<body onload="drawVisualization()">
+
+	<div class="container">
+	
+		<header>
+			<h1 class="page-title">Visualizing YouTube Comments</h1>
+		</header>
+	
+		<!-- <nav> -->
+		<!-- </nav> -->
+	
+		<div class="main-content">
+			<div class="section">
+				<h2 class="section-title">Visualization</h2>
+				
+				<div id="videoTitle">
+					<!-- <h3>Video Title: <span></span></h3> -->
+					<h3></h3>
+				</div>
+				
+				<!-- <div> -->
+				<!-- <h3>Video Title:</h3> -->
+				<!-- <div id="videoTitle"></div> -->
+				<!-- </div> -->
+				
+				<div class="aspect-ratio">
+					<!-- <div id = "visualization">FALLBACK CONTENT</div> -->
+					<div id = "visualization"></div>
+				</div>
+				
+				<h3>Total number of comments: <span id="totalComments"></span></h3>
+				
+				<h3>Number of comments retrieved: <span id="totalCommentsRetrieved"></span></h3>
+				
+				<h3>Longest comment retrieved: <span id="longestCommentRetrieved"></span></h3>
+				
+				<h3>Average comment length: <span id="averageCommentLength"></span></h3>
+				
+				<h2 class="section-title">Options</h2>
+				<table class="user-input">
+					<!--<tr>
+						<th></th>
+						<th></th>
+					</tr> -->
+					<tr>
+						<td>Video URL:</td> 
+						<td>
+							<input type="url" id="videoUrl" name="video_url" value="https://www.youtube.com/watch?v=hA8lElh7LFg" size=38>
+						</td>
+					</tr>
+					<tr>
+						<td>Max comments:</td> 
+						<td>
+							<input type="number" id="maxCommentsToRetrieve" name="maxCommentsToRetrieve" value="200" size=5>
+						</td>
+					</tr>		
+					<tr>
+						<td>Plot Type:</td>
+						<td>
+						<select id="plotType">
+							<option value="surface_1" selected>Surface</option>
+							<option value="surface_2">Randomized Surface</option>
+							<option value="surface_3">Decaying???</option>
+							<option value="surface_3">Animation???</option>
+						</select>
+						</td>
+					</tr>
+					<tr>
+						<td>Animate camera:</td> 
+						<td>
+							<input type="checkbox" id="animateCamera" name="animate_camera" unchecked>
+						</td>
+					</tr>
+					<tr>
+						<td>Show axes:</td> 
+						<td>
+							<input type="checkbox" id="showAxes" name="show_axes" unchecked>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<button type="button" id="updateButton" onclick="drawVisualization()">Update Plot</button>
+						</td>
+					</tr>
+				</table> 
+			</div><!-- END VISUALIZATION SECTION -->
+		</div>
+		
+		<div class="side-content">
+			<div class="section">
+				<h2 class="section-title">What Is It?</h2>
+				<!-- <div class="section-content"> -->
+				<p>… A visualizer for the comments section of a YouTube video.</p>
+				<p>There's a few options for the type of visualization, but they all take a number of comments as input and generate a surface as output. The basic transformation uses the lengths of the individual comments (\(l_i\)) as follows:</p>
+				
+				$$z = \sum\limits_{i=1}^{N}\left[\sin \left( \frac{x}{l_i} \right) \cos \left( \frac{y}{l_i} \right) l_i + l_i \right]$$
+				
+				<p>Now, the big question is, does it tell you anything useful? Is there new information you can glean by looking at these surfaces? Can it tell you how toxic the comments are? How chaotic? How interesting??</p>
+				<p>I mean … not really, no.</p>
+				<p>It mostly just looks pretty.</p>
+				<p>And hopefully shows that I know enough JavaScript to convince someone to <em>hire me</em> and avoid starving to death.</p>
+				<!-- <p>But other than that, there’s probably more actual information in the statistics below the plot than in the plot itself. Or at least more information that you can identify without a bunch of additional processing, which would kind of defeat the point.</p> -->
+				
+			</div>
+			
+			<div class="section">
+				<h2 class="section-title">How Do I Use It?</h2>
+				<p>Paste the URL for a YouTube video you wanna visualize into the <em onmouseover="outlineDiv(this,'videoUrl')">video URL</em> box in the Options section, then hit <em onmouseover="outlineDiv(this,'updateButton')">Update Plot</em>.</p>
+				
+				<p>Other options:</p>
+				<ul>
+					<li>Max comments</li>
+					<li>Plot type</li>
+					<li>???</li>
+				</ul>
+				
+				<p>Dealing with errors? Refresh?</p>
+			</div>		
+			
+			<div class="section">
+				<h2 class="section-title">How Does It Work?</h2>
+				
+				<p>asdf</p>
+
+				<h3>The YouTube API</h3>
+				<p></p>
+
+				<h3>Recursion and Promises with Fetch</h3>
+				<p></p>
+				
+				<h3>PROBLEM: Next Page and Asynchronous Calls</h3>
+				<p></p>
+				
+				<h3>Plotting with vis.js</h3>
+				<p>The surface function. Why?
+-	Vis.js (why not d3.js? or plotly.js? Answer: it probably should be)
+-	Future?
+o	Custom color mapping
+</p>
+
+			</div>
+		</div>
+		
+		<footer>
+			<p>Mzuri S. Handlin - CONTACT INFO???</p>
+			<p>What even is a footer?</p>
+		</footer>
+	
+	</div>
+
+	<script src="js/youtube.js"></script>
+	<script src="js/utility.js"></script>
+	<script src="js/plotting.js"></script>
+	<script src="js/main.js"></script>	
+	
+</body>
+</html>
