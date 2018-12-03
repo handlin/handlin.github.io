@@ -101,8 +101,8 @@
 						<select id="plotType">
 							<option value="surface_1" selected>Surface</option>
 							<option value="surface_2">Randomized Surface</option>
-							<option value="surface_3">Decaying???</option>
-							<option value="surface_3">Animation???</option>
+							<!-- <option value="surface_3">Decaying???</option> -->
+							<!-- <option value="surface_3">Animation???</option> -->
 						</select>
 						</td>
 					</tr>
@@ -152,19 +152,20 @@
 				
 				<p>Other options:</p>
 				<ul>
-					<li>Max comments</li>
-					<li>Plot type</li>
-					<li>???</li>
+					<li>Max comments: up to 10,000 (so something like Despacito doesn't just break it)</li>
+					<li>Plot type: currently only default ("Surface") and random ("Randomized Surface" - chooses random subset of comments to plot for the same video)</li>
+					<li>Show axes: does what it says, doesn't look great so off by default</li>
 				</ul>
 				
-				<p>Dealing with errors? Refresh?</p>
+				<!-- <p>Dealing with errors? Refresh?</p> -->
 			</div>		
 			
 			<div class="section">
 				<h2 class="section-title">How Does It Work?</h2>
 				
-				<p>asdf</p>
+				<p>Extracts the ID for the video from the video URL using some basic regex, then uses that ID with the YouTube API to grab data for that video. This includes grabbing the text of the comments for that video (up to a given maximum number of comments). The lengths of these comments are then plotted according to the formula above using the plotting library <a href="http://visjs.org">vis.js</a></p>
 
+				<!--
 				<h3>The YouTube API</h3>
 				<p></p>
 
@@ -180,12 +181,14 @@
 -	Future?
 o	Custom color mapping
 </p>
+-->
 
 			</div>
 		</div>
 		
 		<footer>
-			<p>Mzuri S. Handlin - CONTACT INFO???</p>
+			<!-- <p>Mzuri S. Handlin - CONTACT INFO???</p> -->
+			<p><a href="docs/resume.pdf" target ="_blank">Mzuri S. Handlin</a></p>
 			<p>What even is a footer?</p>
 		</footer>
 	
