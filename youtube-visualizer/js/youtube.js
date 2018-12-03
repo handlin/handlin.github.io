@@ -2,8 +2,12 @@
 	GENERAL YOUTUBE STUFF
 **********************************/
 
+function getVideoUrl() {
+	return videoUrl = document.getElementById('videoUrl').value;	// get video url
+}
+
 function getVideoId() {
-	const videoUrl = document.getElementById('videoUrl').value;	// get video url
+	const videoUrl = getVideoUrl();	// get video url
 	const videoId = getYoutubeIdFromUrl(videoUrl);				// get video id from url
 	
 	return videoId;
@@ -77,7 +81,9 @@ function getAndSetTitle(jsonResponse) {
 function setVideoTitle(title) {
 	// $('#videoTitle').html(title);
 	// document.getElementById('videoTitle').innerHTML = title;
-	document.querySelector('#videoTitle span').innerHTML = title;
+	let videoUrl = getVideoUrl();
+	let titleHtml = "<a href=" + videoUrl + ">"+title+"</a>"
+	document.querySelector('#videoTitle span').innerHTML = titleHtml;
 }
 
 
