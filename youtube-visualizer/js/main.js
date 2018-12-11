@@ -1,6 +1,6 @@
 //TODO: PUT THIS GOD DAMN KEY ON THE SERVER
 // so that its not exposed in the client
-const YOUTUBE_API_KEY = "AIzaSyATXiCXli4NL5nCbXG7HEctzXAhnkxtOgU" // TODO: move this onto server
+const YOUTUBE_API_KEY = "AIzaSyAvhw6pXtHVsorUrVZFj7G6QzLVmXqx97g" // TODO: move this onto server
 
 
 const MAX_COMMENTS_PER_PAGE = 100; // maximum number of comments you're allowed to get in one API call
